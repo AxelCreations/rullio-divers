@@ -1,0 +1,17 @@
+@import 'vars';
+@import 'login';
+
+body {
+    background-color: $color-white;
+    font-size: $font-size-body;
+}
+
+#section-main {
+    background-image: url(../img/bg-2.jpg);
+    background-clip: content-box;
+    background-size: cover;
+    background-position: center bottom;
+    background-color: $color-white-smoke;
+    height: 500px;
+    width: 100vw;
+}

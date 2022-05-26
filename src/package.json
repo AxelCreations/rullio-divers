@@ -1,0 +1,17 @@
+{
+  "name": "rullio-divers",
+  "version": "1.0.0",
+  "description": "Rullio Divers",
+  "scripts": {
+    "watch": "gulp watch"
+  },
+  "author": "AxelCreations",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-hb": "^8.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "sass": "^1.49.9",
+    "typescript": "^4.6.3"
+  }
+}
