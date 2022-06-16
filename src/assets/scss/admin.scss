@@ -69,24 +69,51 @@ body.admin {
 
             .nav-link {
                 color: $color-gray-dark;
+                font-weight: 600;
                 padding: 0.5rem 0.75rem;
-                font-weight: bold;
-
+                
                 &:hover,
                 &:active {
-                    background-color: rgba($color-white, 0.7);
+                    background-color: rgba($color-white, 0.4);
                     color: $blue-primary;
                 }
+                
+                &.dropdown-indicator {
+                    font-weight: bold;
+                    position: relative;
+                    
+                    .fas.caret {
+                        position: absolute;
+                        right: 1rem;
+                        top: 0.75rem;
+                        font-size: 1.3rem;
+                    }
+                    
+                    &:not(.collapsed) {
+                        background-color: rgba($color-white, 0.5);
+                        color: $color-black;
+
+                        .fas.caret {
+                            top: 0.5rem;
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+
+            }
+
+            .nav.collapse.show, .nav.collapsing {
+                background-color: rgba($color-white, 0.2);
             }
             
             &:hover {
                 .nav-link.dropdown-indicator {
-                    background-color: rgba($color-white, 0.7);
-                    color: $color-gray-dark;
+                    background-color: rgba($color-white, 0.5);
+                    color: $color-black;
                 }
 
                 .nav {
-                    background-color: rgba($color-white, 0.3);
+                    background-color: rgba($color-white, 0.1);
                 }
             }
         }
