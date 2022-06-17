@@ -32,6 +32,13 @@ body.admin {
     }
 }
 
+.btn {
+    box-shadow: none !important;
+    font-weight: 500;
+    font-size: 1rem;
+
+}
+
 .admin-header {
     height: 80px;
     align-items: center;
@@ -99,13 +106,12 @@ body.admin {
                         }
                     }
                 }
-
             }
 
             .nav.collapse.show, .nav.collapsing {
                 background-color: rgba($color-white, 0.2);
             }
-            
+
             &:hover {
                 .nav-link.dropdown-indicator {
                     background-color: rgba($color-white, 0.5);
@@ -124,4 +130,56 @@ body.admin {
         padding: 2rem;
         width: calc(100% - 300px);
     }
+}
+
+.content-box {
+    background-color: $color-white;
+    border-radius: 0.5rem;
+    color: $color-black;
+    box-shadow: 0 0 15px 5px rgba($color-black, 0.05);
+    margin-bottom: 2rem;
+    
+    &-header {
+        border-bottom: 1px solid $blue-primary-20;
+        color: $blue-primary;
+        padding: 0.75rem 2rem;
+        
+        h4 {
+            margin: 0;
+        }
+    }
+    
+    &-body {
+        padding: 1rem 2rem;
+        
+        label {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+        
+        input {
+            outline: none;
+            box-shadow: none !important;
+        }
+    }
+    
+    &-footer {
+        border-top: 1px solid $blue-primary-10;
+        padding: 1rem 2rem;
+
+        .btn-outline-primary {
+            border-color: $blue-primary;
+            box-shadow: none !important;
+            color: $blue-primary;
+            font-size: 1rem;
+            font-weight: 500;
+            
+            &:hover {
+                background-color: $blue-primary;
+                color: $color-white;
+            }
+        }
+    }
+    
 }
