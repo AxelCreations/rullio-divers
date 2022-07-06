@@ -10,7 +10,7 @@ body {
 #section-main {
     background-image: url(../img/bg-2.jpg);
     background-clip: content-box;
-    background-size: cover;
+    background-size: calc(max(100%, 1000px));
     background-position: center bottom;
     background-color: $color-white-smoke;
     height: 500px;

@@ -4,7 +4,7 @@
     background-color: $color-white-smoke;
     background-image: url(../img/bg-2.jpg);
     background-position: center bottom;
-    background-size: cover;
+    background-size: calc(max(100vw, 1600px));
     box-sizing: border-box;
     display: flex;
     justify-content: center;
