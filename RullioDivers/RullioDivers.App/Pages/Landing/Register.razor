@@ -1,0 +1,52 @@
+﻿@page "/register"
+
+<PageTitle>RullioDivers - Registro</PageTitle>
+
+<main id="login">
+
+    <a href="/" id="login-back-btn" class="d-none d-lg-block">Inicio</a>
+
+    <EditForm id="login-form" class="row px-3 py-4" EditContext="@RegisterContext">
+    </EditForm>
+
+    <form id="login-form" class="py-4" action="" method="post">
+        <h1 class="my-0 pt-0 mb-1">Registrarse</h1>
+        <div class="form-group mb-4 bg-danger">
+            <label class="form-label d-block w-50">Nombre</label>
+            <label class="form-label d-block w-50">Segundo Nombre</label>
+            <input type="text" class="form-control" style="width: calc(50% - 30px); margin-right: 10px;" placeholder="Zoi Ru Yio">
+            <input type="text" class="form-control" style="width: calc(50% - 20px);" placeholder="Zoi Ru Yio2">
+        </div>
+        <div class="form-group mb-4">
+            <label class="form-label">Correo</label>
+            <input type="email" class="form-control" placeholder="correo@correo.com">
+        </div>
+        <div class="form-group mb-4 d-flex flex-wrap">
+            <label class="form-label d-block w-100">Escuela y Credencial</label>
+            <input type="email" class="form-control" style="width: calc(75% - 10px); margin-right: 10px;" placeholder="Escuela de buzos Arroyo Hondo">
+            <input type="number" class="form-control w-25" placeholder="1252251">
+        </div>
+        <div class="form-group mb-4">
+            <label class="form-label">Contraseña</label>
+            <input type="password" class="form-control" placeholder="• • • • • •">
+        </div>
+        <div class="form-group mb-4">
+            <label class="form-label">Foto carnet</label>
+            <input type="file" class="form-control" placeholder="carnet">
+        </div>
+        <div class="form-group d-flex justify-content-center pt-1">
+            <button type="submit" class="btn btn-outline-light w-75">Registrarse</button>
+            <a href="login" type="submit" class="btn btn-outline-secondary w-25 ms-4">Login</a>
+        </div>
+    </form>
+</main>
+
+@code {
+    private RegisterDTO RegisterModel = new();
+    private EditContext RegisterContext;
+
+    protected override void OnInitialized()
+    {
+        RegisterContext = new(RegisterModel);
+    }
+}

@@ -1,5 +1,9 @@
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using RullioDivers.DAL;
+using Microsoft.Extensions.Configuration;
 using RullioDivers.App.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +11,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
+
+
+builder.Services.AddDbContextFactory<RullioDataContext>(option =>
+    option.UseSqlServer(builder.Configuration.GetConnectionString("DefatultConnection")));
+
+builder.Services.AddScoped<AccountService>();
 
 var app = builder.Build();
 
@@ -29,3 +38,4 @@ app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
 app.Run();
+

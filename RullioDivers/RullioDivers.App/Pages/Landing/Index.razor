@@ -1,0 +1,40 @@
+﻿@page "/"
+
+<PageTitle>RullioDivers - Home</PageTitle>
+
+<nav id="site-nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="img/logo.png" alt="rullio-divers-Logo" height="50">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="mainNavbar" aria-labelledby="mainNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="mainNavbarLabel">Navegar</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+            </div>
+
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="login" Match="NavLinkMatch.All">Login</NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="register" Match="NavLinkMatch.All">Registrarse</NavLink>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<main id="section-main">
+    <h1>Hola Rullios!!!!</h1>
+</main>
