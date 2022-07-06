@@ -1,0 +1,15 @@
+﻿@inject DiverSchoolsService DiverSchoolsService
+
+@foreach (var item in DiverSchools)
+{
+    <option value="@item.ID">@item.Name</option>
+}
+
+@code {
+    private List<DiverSchool> DiverSchools = new();
+
+    protected async override Task OnInitializedAsync()
+    {
+        DiverSchools = await DiverSchoolsService.GetAllAsync();
+    }
+}

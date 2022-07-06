@@ -3,22 +3,42 @@
 <PageTitle>RullioDivers - Login</PageTitle>
 
 <main id="login">
-    
+
     <a href="/" id="login-back-btn">Inicio</a>
 
-    <form id="login-form" action="/admin.html" method="get">
-        <h1>Ingresar</h1>
-        <div class="form-group mb-4">
-            <label class="form-label">Correo</label>
-            <input type="email" class="form-control" placeholder="correo@correo.com">
+    <EditForm id="login-form" class="row px-3 py-4" EditContext="@LoginContext" OnValidSubmit="@LoginSubmit">
+        <DataAnnotationsValidator />
+
+        <h1 class="my-0 pt-0 mb-1">Ingresar</h1>
+
+        <div class="form-group col-12 mb-4">
+            <label class="form-label" for="Email">Correo</label>
+            <InputText type="email" id="Email" @bind-Value="LoginModel.Email" class="form-control" placeholder="correo@correo.com" />
+            <ValidationMessage For="@(() => LoginModel.Email)" />
         </div>
-        <div class="form-group mb-5">
-            <label class="form-label">Contraseña</label>
-            <input type="password" class="form-control" placeholder="• • • • • •">
+        <div class="form-group col-12 mb-4">
+            <label class="form-label" for="Password">Contraseña</label>
+            <InputText type="password" id="Password" @bind-Value="LoginModel.Password" class="form-control" placeholder="• • • • • •" />
+            <ValidationMessage For="@(() => LoginModel.Password)" />
         </div>
-        <div class="form-group">
+        <div class="form-group col-12">
             <button type="submit" class="btn btn-outline-light w-100">Login</button>
-            <a href="register" class="btn btn-outline-secondary d-block w-50 mt-3 float-end">Registro</a>
+            <a href="register" type="submit" class="btn btn-outline-secondary d-block w-50 mt-3 float-end">Registrarse</a>
         </div>
-    </form>
+    </EditForm>
 </main>
+
+@code {
+    private RegisterDTO LoginModel = new();
+    private EditContext LoginContext;
+
+    protected override void OnInitialized()
+    {
+        LoginContext = new(LoginModel);
+    }
+
+    private void LoginSubmit()
+    {
+
+    }
+}

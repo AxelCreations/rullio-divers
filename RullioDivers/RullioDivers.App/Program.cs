@@ -14,9 +14,10 @@ builder.Services.AddServerSideBlazor();
 
 
 builder.Services.AddDbContextFactory<RullioDataContext>(option =>
-    option.UseSqlServer(builder.Configuration.GetConnectionString("DefatultConnection")));
+    option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<AccountService>();
+builder.Services.AddScoped<DiverSchoolsService>();
 
 var app = builder.Build();
 

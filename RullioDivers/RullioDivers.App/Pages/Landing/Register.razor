@@ -6,39 +6,59 @@
 
     <a href="/" id="login-back-btn" class="d-none d-lg-block">Inicio</a>
 
-    <EditForm id="login-form" class="row px-3 py-4" EditContext="@RegisterContext">
-    </EditForm>
+    <EditForm id="login-form" class="row px-3 py-4" EditContext="@RegisterContext" OnValidSubmit="@RegisterSubmit">
+        <DataAnnotationsValidator />
 
-    <form id="login-form" class="py-4" action="" method="post">
         <h1 class="my-0 pt-0 mb-1">Registrarse</h1>
-        <div class="form-group mb-4 bg-danger">
-            <label class="form-label d-block w-50">Nombre</label>
-            <label class="form-label d-block w-50">Segundo Nombre</label>
-            <input type="text" class="form-control" style="width: calc(50% - 30px); margin-right: 10px;" placeholder="Zoi Ru Yio">
-            <input type="text" class="form-control" style="width: calc(50% - 20px);" placeholder="Zoi Ru Yio2">
+
+        <div class="form-group col-12 mb-4">
+            <label class="form-label" for="Names">Nombres</label>
+            <InputText id="Names" @bind-Value="RegisterModel.Names" class="form-control" placeholder="Zoi Ru" />
+            <ValidationMessage For="@(() => RegisterModel.Names)" />
         </div>
-        <div class="form-group mb-4">
-            <label class="form-label">Correo</label>
-            <input type="email" class="form-control" placeholder="correo@correo.com">
+        <div class="form-group col-12 mb-4">
+            <label class="form-label" for="LastNames">Apellidos</label>
+            <InputText id="LastNames" @bind-Value="RegisterModel.LastNames" class="form-control" placeholder="Yi Oh" />
+            <ValidationMessage For="@(() => RegisterModel.LastNames)" />
         </div>
-        <div class="form-group mb-4 d-flex flex-wrap">
-            <label class="form-label d-block w-100">Escuela y Credencial</label>
-            <input type="email" class="form-control" style="width: calc(75% - 10px); margin-right: 10px;" placeholder="Escuela de buzos Arroyo Hondo">
-            <input type="number" class="form-control w-25" placeholder="1252251">
+        <div class="form-group col-12 mb-4">
+            <label class="form-label" for="Email">Correo</label>
+            <InputText id="Email" @bind-Value="RegisterModel.Email" class="form-control" placeholder="correo@correo.com" />
+            <ValidationMessage For="@(() => RegisterModel.Email)" />
         </div>
-        <div class="form-group mb-4">
-            <label class="form-label">Contraseña</label>
-            <input type="password" class="form-control" placeholder="• • • • • •">
+        <div class="form-group col-12 mb-4 d-flex flex-wrap">
+            <label class="form-label d-block w-100" for="DiverSchoolID">Escuela</label>
+            <InputSelect name="DiverSchoolID" id="DiverSchoolID" class="form-select" @bind-Value="RegisterModel.DiverSchoolID">
+                <option value="0">Seleccionar Escuela</option>
+                <DiverSchoolSelectOptions />
+            </InputSelect>
+            <ValidationMessage For="@(() => RegisterModel.DiverSchoolID)" />
         </div>
-        <div class="form-group mb-4">
-            <label class="form-label">Foto carnet</label>
-            <input type="file" class="form-control" placeholder="carnet">
+        <div class="form-group col-7 col-lg-8 mb-4">
+            <label class="form-label" for="LicenseImage">Foto carnet</label>
+            <InputFile id="LicenseImage" @bind-Value="RegisterModel.LicenseImage" class="form-control" />
+            <ValidationMessage For="@(() => RegisterModel.LicenseImage)" />
+        </div>
+        <div class="form-group col-5 col-lg-4 mb-4">
+            <label class="form-label" id="License">ID carnet</label>
+            <InputText id="License" @bind-Value="RegisterModel.License" class="form-control" placeholder="c-000" />
+            <ValidationMessage For="@(() => RegisterModel.License)" />
+        </div>
+        <div class="form-group col-12 mb-4">
+            <label class="form-label" for="Password">Contraseña</label>
+            <InputText type="password" id="Password" @bind-Value="RegisterModel.Password" class="form-control" placeholder="• • • • • •" />
+            <ValidationMessage For="@(() => RegisterModel.Password)" />
+        </div>
+        <div class="form-group col-12 mb-4">
+            <label class="form-label" for="PasswordRepeat">Repetir Contraseña</label>
+            <InputText type="password" id="PasswordRepeat" @bind-Value="RegisterModel.PasswordRepeat" class="form-control" placeholder="• • • • • •" />
+            <ValidationMessage For="@(() => RegisterModel.PasswordRepeat)" />
         </div>
         <div class="form-group d-flex justify-content-center pt-1">
             <button type="submit" class="btn btn-outline-light w-75">Registrarse</button>
             <a href="login" type="submit" class="btn btn-outline-secondary w-25 ms-4">Login</a>
         </div>
-    </form>
+    </EditForm>
 </main>
 
 @code {
@@ -48,5 +68,10 @@
     protected override void OnInitialized()
     {
         RegisterContext = new(RegisterModel);
+    }
+
+    private void RegisterSubmit()
+    {
+        
     }
 }
