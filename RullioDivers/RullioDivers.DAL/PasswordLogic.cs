@@ -1,29 +1,28 @@
 ﻿using System.Text;
 
-namespace RullioDivers.DAL
-{
-    public static class PasswordLogic
-    {
-        public static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
-        {
-            using var hmac = new System.Security.Cryptography.HMACSHA512();
-            passwordSalt = hmac.Key;
-            passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-        }
+namespace RullioDivers.DAL;
 
-        public static bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
-        {
-            using (System.Security.Cryptography.HMACSHA512 hmac = new(passwordSalt))
-            {
-                var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+  public static class PasswordLogic
+  {
+      public static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+      {
+          using var hmac = new System.Security.Cryptography.HMACSHA512();
+          passwordSalt = hmac.Key;
+          passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+      }
 
-                for (int i = 0; i < computedHash.Length; i++)
-                {
-                    if (computedHash[i] != passwordHash[i]) return false;
-                }
-            }
+      public static bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
+      {
+          using (System.Security.Cryptography.HMACSHA512 hmac = new(passwordSalt))
+          {
+              var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
 
-            return true;
-        }
-    }
-}
+              for (int i = 0; i < computedHash.Length; i++)
+              {
+                  if (computedHash[i] != passwordHash[i]) return false;
+              }
+          }
+
+          return true;
+      }
+  }

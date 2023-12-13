@@ -1,6 +1,5 @@
-﻿namespace RullioDivers.App.Data
-{
-    public class AccountService
-    {
-    }
-}
+﻿namespace RullioDivers.App.Data;
+
+  public class AccountService
+  {
+  }

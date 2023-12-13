@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
-using RullioDivers.DAL;
-using Microsoft.Extensions.Configuration;
 using RullioDivers.App.Data;
+using RullioDivers.DAL;
 
 var builder = WebApplication.CreateBuilder(args);
 

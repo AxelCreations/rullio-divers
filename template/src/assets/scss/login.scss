@@ -50,6 +50,12 @@
         text-shadow: 1px 1px 5px rgba($color-black, 0.8);
         text-transform: uppercase;
     }
+
+    .form-group {
+        .validation-message {
+            color: rgb(105, 5, 5)
+        }
+    }
     
     .form-label {
         color: $color-white;
