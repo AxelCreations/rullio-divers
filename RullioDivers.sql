@@ -1,6 +1,6 @@
 /*=========	AxelCreations - Reynel Axel Perdomo   =============
 --	Created:		05th - July - 2022
---  Last Modified:  05th - July - 2022
+--  Last Modified:  13th - December - 2023
 --	Description:	Database creation Script
 --	Project:		RullioDivers
 ===============================================================*/
@@ -16,6 +16,7 @@ DROP TABLE Logs;
 DROP TABLE Users;
 DROP TABLE UserProfiles;
 DROP TABLE DiverSchools;
+DROP TABLE HomePageInformation;
 */
 ------------------------------------------------------------------
 
@@ -61,3 +62,12 @@ CREATE TABLE Logs
 	[PreviousValue] NVARCHAR(100),
 	[NewValue] NVARCHAR(100)
 );
+
+CREATE TABLE HomePageInformation
+(
+	[ID] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	[HeroTitle] NVARCHAR(60) NOT NULL,
+	[HeroDescription] NVARCHAR(160) NOT NULL,
+	[HeroBackground] NVARCHAR(512),
+)
+
